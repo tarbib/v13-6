@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_coupon_program_view_promo_program_form_specific" model="ir.ui.view">
+        <field name="name">sale.coupon.program.form.specific</field>
+        <field name="model">sale.coupon.program</field>
+        <field name="inherit_id" ref="sale_coupon.sale_coupon_program_view_promo_program_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='reward_product_id']/parent::group" position="attributes">
+                <attribute name="attrs">{'invisible': [('reward_type', '=', 'free_product_as_normal')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']/parent::group" position="after">
+                <group attrs="{'invisible': [('reward_type', '!=', 'free_product_as_normal')]}">
+                    <field name="reward_free_product_id"
+                           attrs="{'required': [('reward_type', '=', 'free_product_as_normal')]}"
+                           placeholder="Select reward product"/>
+                    <label string="Quantity" for="reward_free_product_quantity"/>
+                    <div>
+                        <field name="reward_free_product_quantity" class="oe_inline"/>
+                        <field name="reward_free_product_uom_id" class="oe_inline"/>
+                    </div>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="sale_coupon_program_view_form_specific" model="ir.ui.view">
+        <field name="name">sale.coupon.program.form.specific</field>
+        <field name="model">sale.coupon.program</field>
+        <field name="inherit_id" ref="sale_coupon.sale_coupon_program_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='reward_product_id']/parent::group" position="attributes">
+                <attribute name="attrs">{'invisible': [('reward_type', '=', 'free_product_as_normal')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']/parent::group" position="after">
+                <group attrs="{'invisible': [('reward_type', '!=', 'free_product_as_normal')]}">
+                    <field name="reward_free_product_id"
+                           attrs="{'required': [('reward_type', '=', 'free_product_as_normal')]}"
+                           placeholder="Select reward product"/>
+                    <label string="Quantity" for="reward_free_product_quantity"/>
+                    <div>
+                        <field name="reward_free_product_quantity" class="oe_inline"/>
+                        <field name="reward_free_product_uom_id" class="oe_inline"/>
+                    </div>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
