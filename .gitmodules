@@ -1,0 +1,4 @@
+[submodule "OCA/sale-promotion"]
+	path = OCA/sale-promotion
+	url = git@github.com:OCA/sale-promotion.git
+	branch = 13.0
